@@ -5,4 +5,5 @@ branches:
 projects:
   FoodEffect:
     path: ""
+    icon: "icon.png"
 ...
