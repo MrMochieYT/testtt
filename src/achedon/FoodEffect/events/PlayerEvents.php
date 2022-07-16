@@ -3,9 +3,8 @@
 namespace achedon\FoodEffect\events;
 
 use achedon\FoodEffect\Main;
-use pocketmine\entity\effect\Effect;
+use pocketmine\data\bedrock\EffectIdMap;
 use pocketmine\entity\effect\EffectInstance;
-use pocketmine\entity\effect\VanillaEffects;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerItemConsumeEvent;
 
@@ -19,16 +18,8 @@ class PlayerEvents implements Listener{
             $food = Main::getInstance()->getConfig()->getAll()[$item->getId()];
             $effect = $food["effect"];
             foreach($effect as $id => $values){
-                $player->getEffects()->add(new EffectInstance($this->getEffect($id), $values["duration"], $values["level"], $values["visible"]));
+                $player->getEffects()->add(new EffectInstance(EffectIdMap::getInstance()->fromId($id), $values["duration"], $values["level"], $values["visible"]));
             }
         }
-    }
-
-    private function getEffect(int $id): Effect{
-        $allEffects = [];
-        foreach (VanillaEffects::getAll() as $effect){
-            $allEffects[] = $effect;
-        }
-        return $allEffects[$id];
     }
 }
