@@ -2,9 +2,9 @@
 
 ![icon](icon.png)
 
-[FR] Simple plugin de food effect
+[FR] Simple plugin de food effect permettant de donner n'importe quel effet à de la nourriture
 
-[ENG] Simple FoodEffect plugin 
+[ENG]Simple food effect plugin allowing to give any effect to food
 
 -----------------
 ## Credit
